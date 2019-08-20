@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace EFCore.Playground.Models
+namespace EFCore.Playground.DataAccess.Models
 {
     public class Department
     {

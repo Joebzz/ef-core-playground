@@ -1,6 +1,6 @@
-namespace EFCore.Playground.Models
+namespace EFCore.Playground.DataAccess.Models
 {
-    public class EmployeeRoles
+    public class EmployeeRole
     {
         public int EmployeeId { get; set; }
         public Employee Employee { get; set; }
