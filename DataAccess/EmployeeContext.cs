@@ -25,22 +25,33 @@ namespace EFCore.Playground.DataAccess
                 .HasKey(er => new { er.EmployeeId, er.RoleId });
 
             // Unique Employee Email
-             modelBuilder.Entity<Employee>()
-                .HasIndex(u => u.Email)
-                .IsUnique();
+            modelBuilder.Entity<Employee>()
+               .HasIndex(u => u.Email)
+               .IsUnique();
 
             // Unique Employee Username
-             modelBuilder.Entity<Employee>()
-                .HasIndex(u => u.Username)
-                .IsUnique();
+            modelBuilder.Entity<Employee>()
+               .HasIndex(u => u.Username)
+               .IsUnique();
+
+            // Default Value for Office
+            modelBuilder.Entity<Department>()
+                .Property(b => b.OfficeId)
+                .HasDefaultValue(-1);
 
             #region Seed Data
+            // Offices
+            var londonOffice = new Office { OfficeId = -1, Title = "London (HQ)", PostalCode = "SK2 5JY", PhoneNumber = "+1234567891" };
+            modelBuilder.Entity<Office>().HasData(londonOffice);
+            var newYorkOffice = new Office { OfficeId = -2, Title = "New York", PostalCode = "10001", PhoneNumber = "+1234567892" };
+            modelBuilder.Entity<Office>().HasData(newYorkOffice);
+
             // Departments
-            var hrDepartment = new Department { DepartmentId = -1, Title = "HR" };
+            var hrDepartment = new Department { DepartmentId = -1, Title = "HR", OfficeId = londonOffice.OfficeId };
             modelBuilder.Entity<Department>().HasData(hrDepartment);
-            var itDepartment = new Department { DepartmentId = -2, Title = "IT" };
+            var itDepartment = new Department { DepartmentId = -2, Title = "IT", OfficeId = londonOffice.OfficeId };
             modelBuilder.Entity<Department>().HasData(itDepartment);
-            var softwareDepartment = new Department { DepartmentId = -3, Title = "Software" };
+            var softwareDepartment = new Department { DepartmentId = -3, Title = "Software", OfficeId = newYorkOffice.OfficeId };
             modelBuilder.Entity<Department>().HasData(softwareDepartment);
 
             // Roles
@@ -58,7 +69,7 @@ namespace EFCore.Playground.DataAccess
                 Surname = "Smith",
                 Username = "ssmith",
                 Email = "ssmith@company.com",
-                PhoneNumber = "+123456789",
+                PhoneNumber = "+1234567893",
                 DepartmentId = hrDepartment.DepartmentId
             };
             modelBuilder.Entity<Employee>().HasData(stanSmith);
@@ -71,7 +82,7 @@ namespace EFCore.Playground.DataAccess
                 Surname = "Bean",
                 Username = "tbean",
                 Email = "tbean@company.com",
-                PhoneNumber = "+1237891011",
+                PhoneNumber = "+1234567894",
                 DepartmentId = softwareDepartment.DepartmentId
             };
             modelBuilder.Entity<Employee>().HasData(timBean);
@@ -84,7 +95,7 @@ namespace EFCore.Playground.DataAccess
                 Surname = "Black",
                 Username = "jblack",
                 Email = "jblack@company.com",
-                PhoneNumber = "+1237891013",
+                PhoneNumber = "+1234567895",
                 ManagerId = timBean.EmployeeId,
                 DepartmentId = softwareDepartment.DepartmentId
             };
