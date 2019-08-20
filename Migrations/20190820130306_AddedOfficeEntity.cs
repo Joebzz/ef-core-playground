@@ -91,6 +91,9 @@ namespace EFCore.Playground.Migrations
                 principalTable: "Office",
                 principalColumn: "OfficeId",
                 onDelete: ReferentialAction.Cascade);
+
+            // Run Raw SQL to update the Foreign Key of the Department added before The Office Entity    
+            migrationBuilder.Sql("UPDATE Departments SET OfficeId = -2 WHERE Title = 'Finance'");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -129,7 +132,7 @@ namespace EFCore.Playground.Migrations
                 keyColumn: "EmployeeId",
                 keyValue: -1,
                 column: "PhoneNumber",
-                value: "+123456789");
+                value: "+123456789");            
         }
     }
 }

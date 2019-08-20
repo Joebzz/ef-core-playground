@@ -23,3 +23,18 @@ Below are some of the things I will be testing with Entity Framework Migrations:
    ~~~
    dotnet ef database update <Previous Migration>
    ~~~ 
+
+
+## EF Core Findings
+* Can set Default Values for Foreign Keys using .HasDefaultValue(-1) function e.g.
+    ~~~
+    // Default Value for Office
+    modelBuilder.Entity<Department>()
+        .Property(b => b.OfficeId)
+        .HasDefaultValue(-1);
+    ~~~
+* Can run raw SQL statments during Migrations using migrationBuilder.Sql in the generated Migration File e.g.
+    ~~~
+    migrationBuilder.Sql("UPDATE Departments SET OfficeId = -2 WHERE Title = 'Finance'");
+    ~~~
+* If adding a Unique Key with existing fields that are not Unique they will need to be changed manually for the migration to work.

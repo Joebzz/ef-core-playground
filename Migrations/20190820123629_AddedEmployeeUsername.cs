@@ -47,6 +47,10 @@ namespace EFCore.Playground.Migrations
                 unique: true,
                 filter: "[Email] IS NOT NULL");
 
+            // Run Raw SQL to update the Employees Table before the Unique Index is added
+            migrationBuilder.Sql("UPDATE Employees SET Username = 'eburns' WHERE Email = 'eburns@company.com'");
+            migrationBuilder.Sql("UPDATE Employees SET Username = 'sbullock' WHERE Email = 'sbullock@company.com'");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Employees_Username",
                 table: "Employees",

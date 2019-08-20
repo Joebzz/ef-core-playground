@@ -1,3 +1,4 @@
+using System;
 using Microsoft.EntityFrameworkCore;
 
 using EFCore.Playground.DataAccess.Models;
@@ -14,7 +15,7 @@ namespace EFCore.Playground.DataAccess
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=Employees;Trusted_Connection=True");
+                optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=Employees_Production;Trusted_Connection=True");
             }
         }
 
@@ -31,7 +32,7 @@ namespace EFCore.Playground.DataAccess
 
             // Unique Employee Username
             modelBuilder.Entity<Employee>()
-               .HasIndex(u => u.Username)
+               .HasIndex(e => e.Username)
                .IsUnique();
 
             // Default Value for Office

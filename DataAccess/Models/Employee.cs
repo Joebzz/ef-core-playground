@@ -12,8 +12,21 @@ namespace EFCore.Playground.DataAccess.Models
         public string Firstname { get; set; }
         public string Surname { get; set; }
 
+        private string _username;
         [Required]
-        public string Username { get; set; }
+        public string Username
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_username))
+                    _username = char.ToLower(Firstname[0]) + Surname.ToLower();
+                return _username;
+            }
+            set
+            {
+                _username = value;
+            }
+        }
 
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
