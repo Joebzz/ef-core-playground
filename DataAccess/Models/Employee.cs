@@ -8,7 +8,7 @@ namespace EFCore.Playground.DataAccess.Models
     {
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int EmployeeId { get; set; }
-        public string Title { get; set; }
+        // public string Title { get; set; }
         public string Firstname { get; set; }
         public string Surname { get; set; }
 

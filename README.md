@@ -23,7 +23,12 @@ Below are some of the things I will be testing with Entity Framework Migrations:
    ~~~
    dotnet ef database update <Previous Migration>
    ~~~ 
-
+9. Remove Title Property from Employee Class - Should Warn about 'loss of data'
+   ~~~
+   dotnet ef migrations add RemovedEmployeeTitle
+   ---------------------------------------------
+   An operation was scaffolded that may result in the loss of data. Please review the migration for accuracy.
+   ~~~
 
 ## EF Core Findings
 * Can set Default Values for Foreign Keys using .HasDefaultValue(-1) function e.g.
@@ -38,3 +43,4 @@ Below are some of the things I will be testing with Entity Framework Migrations:
     migrationBuilder.Sql("UPDATE Departments SET OfficeId = -2 WHERE Title = 'Finance'");
     ~~~
 * If adding a Unique Key with existing fields that are not Unique they will need to be changed manually for the migration to work.
+* If any migration could delete existing data it will provide a warning and suggest a review of the migration for accuracy.
