@@ -33,7 +33,7 @@ namespace EFCore.Playground
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            
+
             // Add the Employee DB Context
             var connectionString = Configuration["ConnectionStrings:EmployeeDatabase"];
             services.AddDbContext<EmployeeContext>(options => options.UseSqlServer(connectionString));
@@ -47,6 +47,7 @@ namespace EFCore.Playground
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
             }
             else
             {

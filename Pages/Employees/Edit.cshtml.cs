@@ -15,6 +15,9 @@ namespace EFCore.Playground.Pages_Employees
     {
         private readonly EFCore.Playground.DataAccess.EmployeeContext _context;
 
+        [ViewData]
+        public string ErrorMessage { get; set; }
+
         public EditModel(EFCore.Playground.DataAccess.EmployeeContext context)
         {
             _context = context;
@@ -47,6 +50,7 @@ namespace EFCore.Playground.Pages_Employees
         {
             if (!ModelState.IsValid)
             {
+                ErrorMessage = "Invalid Model State";
                 return Page();
             }
 
@@ -64,7 +68,8 @@ namespace EFCore.Playground.Pages_Employees
                 }
                 else
                 {
-                    throw;
+                    ErrorMessage = "Update Concurrency";
+                    return Page();
                 }
             }
 
