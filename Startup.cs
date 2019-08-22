@@ -33,12 +33,17 @@ namespace EFCore.Playground
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            var singleton = Singleton.Instance;
+            var singletonGuid = singleton.MyGuid;
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            var singleton2 = Singleton.Instance;
+            var singletonGuid2 = singleton2.MyGuid;
 
             // Add the Employee DB Context
             var connectionString = Configuration["ConnectionStrings:EmployeeDatabase"];
             services.AddDbContext<EmployeeContext>(options => options.UseSqlServer(connectionString));
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,12 +64,7 @@ namespace EFCore.Playground
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseMvc();
         }
     }
 }

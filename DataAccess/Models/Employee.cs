@@ -12,6 +12,8 @@ namespace EFCore.Playground.DataAccess.Models
         public string Firstname { get; set; }
         public string Surname { get; set; }
 
+        public string SocialSecurityNumber { get; set; }
+
         private string _username;
         [Required]
         public string Username
@@ -34,12 +36,15 @@ namespace EFCore.Playground.DataAccess.Models
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
 
+        [Display(Name = "Manager")]
         public int? ManagerId { get; set; }
         public Employee Manager { get; set; }
 
+        [Display(Name = "Department")]
         public int DepartmentId { get; set; }
         public Department Department { get; set; }
-
+        
+        [Display(Name = "Roles")]
         public ICollection<EmployeeRole> EmployeeRoles { get; } = new List<EmployeeRole>();
     }
 }

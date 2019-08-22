@@ -44,3 +44,24 @@ Below are some of the things I will be testing with Entity Framework Migrations:
     ~~~
 * If adding a Unique Key with existing fields that are not Unique they will need to be changed manually for the migration to work.
 * If any migration could delete existing data it will provide a warning and suggest a review of the migration for accuracy.
+
+## Migrations in Production
+https://www.thereformedprogrammer.net/handling-entity-framework-core-database-migrations-in-production-part-1/ 
+
+## Concurrency
+https://docs.microsoft.com/en-us/ef/core/saving/concurrency
+
+
+## Visualization Tools
+https://docs.microsoft.com/en-us/ef/core/extensions/
+
+## SQL Server Dynamic Data Masking
+https://hryniewski.net/2017/03/28/dynamic-data-masking-and-entity-framework/ - Not easy to acheive
+
+## Scaffold Pages
+https://docs.microsoft.com/en-us/aspnet/core/data/ef-rp/intro?view=aspnetcore-2.2&tabs=visual-studio-code 
+
+aspnet-codegenerator example command.
+~~~
+dotnet aspnet-codegenerator razorpage -m Employee -dc EFCore.Playground.DataAccess.EmployeeContext  udl -outDir Pages/Employees --referenceScriptLibraries
+~~~

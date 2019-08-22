@@ -8,7 +8,7 @@ namespace EFCore.Playground.DataAccess.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int DepartmentId { get; set; }
         public string Title { get; set; }
-
+        
         public int OfficeId { get; set; }
         public Office Office { get; set; }
         

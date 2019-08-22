@@ -1,0 +1,65 @@
+@page
+@model EFCore.Playground.Pages_Employees.DetailsModel
+
+@{
+    ViewData["Title"] = "Employee Details";
+}
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Firstname)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Firstname)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Surname)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Surname)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.SocialSecurityNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.SocialSecurityNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Username)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Username)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.PhoneNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.PhoneNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Manager)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Manager.Username)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Department)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Department.Title)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Employee.EmployeeId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

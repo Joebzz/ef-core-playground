@@ -66,6 +66,7 @@ namespace EFCore.Playground.DataAccess
             {
                 EmployeeId = -1,
                 // Title = "Mr",
+                SocialSecurityNumber = "P1234567890",
                 Firstname = "Stan",
                 Surname = "Smith",
                 Username = "ssmith",
@@ -79,6 +80,7 @@ namespace EFCore.Playground.DataAccess
             {
                 EmployeeId = -2,
                 // Title = "Mr",
+                SocialSecurityNumber = "P1234567891",
                 Firstname = "Tim",
                 Surname = "Bean",
                 Username = "tbean",
@@ -92,6 +94,7 @@ namespace EFCore.Playground.DataAccess
             {
                 EmployeeId = -3,
                 // Title = "Mr",
+                SocialSecurityNumber = "P1234567892",
                 Firstname = "Jack",
                 Surname = "Black",
                 Username = "jblack",
