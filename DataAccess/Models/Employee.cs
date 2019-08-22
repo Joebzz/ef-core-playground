@@ -46,5 +46,13 @@ namespace EFCore.Playground.DataAccess.Models
         
         [Display(Name = "Roles")]
         public ICollection<EmployeeRole> EmployeeRoles { get; } = new List<EmployeeRole>();
+
+        /// <summary>
+        /// For checking concurrency
+        /// </summary>
+        /// <value></value>
+        [Timestamp]
+        [ConcurrencyCheck]
+        public byte[] RowVersion { get; set; }
     }
 }

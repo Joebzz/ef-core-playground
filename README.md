@@ -50,7 +50,8 @@ https://www.thereformedprogrammer.net/handling-entity-framework-core-database-mi
 
 ## Concurrency
 https://docs.microsoft.com/en-us/ef/core/saving/concurrency
-
+https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/concurrency?view=aspnetcore-2.2#detecting-concurrency-conflicts 
+Implemented in this project using the Row Version.
 
 ## Visualization Tools
 https://docs.microsoft.com/en-us/ef/core/extensions/

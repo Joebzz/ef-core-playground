@@ -32,13 +32,7 @@ namespace EFCore.Playground
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
-            var singleton = Singleton.Instance;
-            var singletonGuid = singleton.MyGuid;
-
-            var singleton2 = Singleton.Instance;
-            var singletonGuid2 = singleton2.MyGuid;
-
+            
             // Add the Employee DB Context
             var connectionString = Configuration["ConnectionStrings:EmployeeDatabase"];
             services.AddDbContext<EmployeeContext>(options => options.UseSqlServer(connectionString));

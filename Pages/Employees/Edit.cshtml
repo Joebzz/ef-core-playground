@@ -52,6 +52,7 @@
                 <select asp-for="Employee.DepartmentId" class="form-control" asp-items="ViewBag.Departments"></select>
                 <span asp-validation-for="Employee.DepartmentId" class="text-danger"></span>
             </div>
+            <input type="hidden" asp-for="Employee.RowVersion" />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
