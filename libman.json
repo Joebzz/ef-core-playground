@@ -3,11 +3,6 @@
   "defaultProvider": "cdnjs",
   "libraries": [
     {
-      "provider": "unpkg",
-      "library": "bootstrap-material-design@4.1.1",
-      "destination": "wwwroot/lib/bootstrap-material-design"
-    },
-    {
       "library": "jquery@3.3.1",
       "destination": "wwwroot/lib/jquery/",
       "files": [
@@ -31,6 +26,10 @@
         "jquery.validate.unobtrusive.js",
         "jquery.validate.unobtrusive.min.js"
       ]
+    },
+    {
+      "library": "twitter-bootstrap@4.3.1",
+      "destination": "wwwroot/lib/twitter-bootstrap"
     }
   ]
 }
